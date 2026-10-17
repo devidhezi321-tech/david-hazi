@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#151512">
+<meta name="description" content="David Hazi — ניהול משמרות ושכר">
+<link rel="manifest" href="manifest.json">
+<title>David Hazi | ניהול משמרות ושכר</title>
+<style>
+:root{--bg:#11120f;--panel:#1b1c17;--panel2:#24251e;--gold:#d4b16c;--gold2:#f0d7a0;--cream:#f7f0e4;--muted:#b9b09f;--line:#49402d;--green:#b8d8a3;--red:#e4a5a0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#3a3020 0%,transparent 38%),var(--bg);color:var(--cream);font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif;min-height:100vh}
+button,input,select{font:inherit}button{cursor:pointer}
+.app{max-width:510px;margin:0 auto;min-height:100vh;padding:0 16px 100px}
+header{display:flex;align-items:center;justify-content:space-between;padding:20px 0 14px;border-bottom:1px solid #3a3426}
+.brand{display:flex;align-items:center;gap:10px}.mark{width:44px;height:44px;border:1px solid var(--gold);border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#30291c,#171712);font-size:24px}
+.brand h1{font-size:17px;margin:0;letter-spacing:.5px}.brand p{margin:3px 0 0;font-size:11px;color:var(--muted)}
+.owner{text-align:left;color:var(--gold);font-family:Georgia,serif;font-style:italic;font-size:13px}.owner small{display:block;font:9px system-ui;letter-spacing:2px;color:var(--muted);margin-top:2px}
+.hero{position:relative;overflow:hidden;margin:18px 0 14px;border:1px solid #5b4a2c;border-radius:22px;min-height:172px;padding:20px;background:linear-gradient(105deg,rgba(19,19,15,.98),rgba(25,23,18,.86) 57%,rgba(70,54,29,.65)),radial-gradient(circle at 85% 50%,#6a522d,transparent 40%)}
+.hero:after{content:"♞";position:absolute;left:4px;bottom:-45px;font-size:180px;color:rgba(213,177,108,.12);transform:rotate(-8deg);pointer-events:none}
+.eyebrow{color:var(--gold);font-size:11px;letter-spacing:1.5px}.hero h2{font-size:26px;margin:8px 0 6px;position:relative;z-index:1}.hero p{margin:0;color:#d3c8b5;font-size:13px;position:relative;z-index:1}.hero .date{display:inline-block;margin-top:16px;padding:7px 10px;border:1px solid #655336;border-radius:99px;color:var(--gold2);font-size:11px}
+.section-head{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px}.section-head h3{margin:0;font-size:16px}.section-head span{font-size:11px;color:var(--muted)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px}.stat{background:linear-gradient(145deg,#22231d,#181914);border:1px solid #3b382d;border-radius:17px;padding:15px}.stat .label{font-size:11px;color:var(--muted)}.stat .value{font-size:24px;font-weight:750;margin:8px 0 4px;letter-spacing:-.6px}.stat .sub{font-size:10px;color:var(--gold)}
+.card{background:var(--panel);border:1px solid #3a382e;border-radius:18px;padding:15px;margin-top:10px}
+.nextrow{display:flex;justify-content:space-between;gap:10px;align-items:center}.nextrow h4{margin:0 0 6px;font-size:15px}.nextrow p{margin:0;color:var(--muted);font-size:12px}.timepill{border:1px solid #68532f;border-radius:12px;padding:9px;color:var(--gold2);font-size:12px;white-space:nowrap}
+.action{border:0;background:linear-gradient(135deg,#e0c17e,#b18b47);color:#211b10;border-radius:13px;padding:12px 15px;font-weight:750}.action.secondary{background:#292920;border:1px solid #51472f;color:var(--gold2)}.action.full{width:100%;margin-top:12px}
+.tabs{position:fixed;z-index:10;bottom:0;left:0;right:0;max-width:510px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);padding:9px 8px calc(9px + env(safe-area-inset-bottom));background:rgba(20,21,17,.96);backdrop-filter:blur(18px);border-top:1px solid #403927}
+.tab{border:0;background:transparent;color:#999487;font-size:10px;padding:6px 2px;display:flex;flex-direction:column;align-items:center;gap:5px}.tab .ico{font-size:19px}.tab.active{color:var(--gold2)}
+.view{display:none}.view.active{display:block}
+.shift{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #36352d}.shift:last-child{border-bottom:0}.daybox{width:48px;min-width:48px;text-align:center;padding:8px 3px;border-radius:12px;background:#29281f;color:var(--gold2)}.daybox b{display:block;font-size:17px}.daybox small{font-size:10px}.shiftinfo{flex:1;min-width:0}.shiftinfo b{display:block;font-size:13px}.shiftinfo small{display:block;color:var(--muted);font-size:11px;margin-top:4px}.money{font-size:13px;color:var(--gold2);font-weight:700;white-space:nowrap}
+label{display:block;color:var(--muted);font-size:12px;margin:12px 0 6px}input,select{width:100%;background:#11120f;color:var(--cream);border:1px solid #4b4638;border-radius:11px;padding:12px;outline:none}input:focus,select:focus{border-color:var(--gold)}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.summaryline{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #38362c;font-size:13px}.summaryline:last-child{border:0}.summaryline span{color:var(--muted)}.summaryline strong{color:var(--cream)}
+.notice{font-size:11px;line-height:1.6;color:#d3c4a7;background:#2b261b;border:1px solid #55452b;padding:12px;border-radius:13px;margin-top:12px}
+.empty{padding:25px;text-align:center;color:var(--muted);font-size:13px}.small{font-size:11px;color:var(--muted);line-height:1.6}
+.delete{border:1px solid #69413b;background:transparent;color:var(--red);border-radius:9px;padding:6px 9px;font-size:11px}
+@media(min-width:600px){body{padding:12px 0}.app{border:1px solid #2f2d25;border-radius:25px;overflow:hidden;background:rgba(17,18,15,.8)}.tabs{bottom:12px;border:1px solid #403927;border-radius:18px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+ <div class="brand"><div class="mark">♞</div><div><h1>DAVID HAZI</h1><p>ניהול משמרות ומשכורת</p></div></div>
+ <div style="display:flex;align-items:center;gap:9px">
+  <button id="installBtn" class="action secondary" style="padding:9px 10px;font-size:11px;display:none" onclick="installApp()">＋ התקנה</button>
+  <div class="owner">David Hazi<small>OWNER</small></div>
+ </div>
+</header>
+<section id="home" class="view active">
+ <div class="hero"><div class="eyebrow">YOUR WORK. YOUR CONTROL.</div><h2>העבודה שלך,<br>בשליטה שלך.</h2><p>כל המשמרות והשכר שלך — במקום אחד.</p><span class="date" id="todayDate"></span></div>
+ <div class="stats">
+  <div class="stat"><div class="label">שעות החודש</div><div class="value" id="monthHours">0:00</div><div class="sub">לפי המשמרות שנשמרו</div></div>
+  <div class="stat"><div class="label">שכר בסיס משוער</div><div class="value" id="monthPay">₪0</div><div class="sub">50 ₪ לשעה · לפני תוספות</div></div>
+ </div>
+ <div class="section-head"><h3>המשמרת הקרובה</h3><span>מבט מהיר</span></div>
+ <div class="card" id="nextShift"><div class="empty">עדיין אין משמרות. הוסף משמרת כדי להתחיל.</div></div>
+ <button class="action full" onclick="showView('schedule');document.getElementById('shiftForm').scrollIntoView({behavior:'smooth',block:'start'})">＋ הוספת משמרת</button>
+ <div class="section-head"><h3>השבוע שלי</h3><span id="weekCount">0 משמרות</span></div>
+ <div class="card" id="weekList"><div class="empty">המשמרות שלך יופיעו כאן.</div></div>
+ <div class="notice">🔒 <b>שקיפות לפני הכול</b><br>כל הסכומים באבטיפוס הם הערכות בסיס בלבד. שעות נוספות, תוספות לפי דין, ניכויים ונטו עדיין אינם מחושבים. בדוק מול תלוש השכר בפועל.</div>
+</section>
+<section id="schedule" class="view">
+ <div class="section-head"><h3>סידור העבודה</h3><span>4 ימי עבודה לדוגמה</span></div>
+ <div class="card" id="allShifts"></div>
+ <div class="section-head"><h3 id="formTitle">הוספת משמרת</h3><span>השכר השעתי: ₪50</span></div>
+ <form class="card" id="shiftForm">
+  <input type="hidden" id="editId">
+  <label for="shiftDate">תאריך</label><input id="shiftDate" type="date" required>
+  <div class="formgrid"><div><label for="startTime">שעת התחלה</label><input id="startTime" type="time" value="09:00" required></div><div><label for="endTime">שעת סיום</label><input id="endTime" type="time" value="17:00" required></div></div>
+  <div class="formgrid"><div><label for="breakMins">הפסקה בדקות</label><input id="breakMins" type="number" min="0" max="300" value="30" required></div><div><label for="breakPaid">הפסקה בתשלום?</label><select id="breakPaid"><option value="no">לא</option><option value="yes">כן</option></select></div></div>
+  <label for="place">מקום עבודה / הערה (לא חובה)</label><input id="place" type="text" placeholder="למשל: סניף מרכז">
+  <button class="action full" type="submit">שמירת משמרת</button><button class="action secondary full" type="button" id="cancelEdit" style="display:none" onclick="resetForm()">ביטול עריכה</button>
+ </form>
+ <p class="small">המשמרות נשמרות במכשיר זה בדפדפן. כדי לסנכרן בין מכשירים או לשתף עם מנהל נדרשת מערכת משתמשים ושרת, שאינם כלולים באבטיפוס.</p>
+</section>
+<section id="salary" class="view">
+ <div class="hero"><div class="eyebrow">SALARY OVERVIEW</div><h2>המשכורת שלי</h2><p>תמונה ברורה של שעות העבודה ושכר הבסיס.</p></div>
+ <div class="stats"><div class="stat"><div class="label">שעות בתשלום</div><div class="value" id="salaryHours">0:00</div><div class="sub">לאחר הפחתת הפסקות לא בתשלום</div></div><div class="stat"><div class="label">שכר בסיס משוער</div><div class="value" id="salaryTotal">₪0</div><div class="sub">50 ₪ לשעה</div></div></div>
+ <div class="section-head"><h3>איך חושב הסכום?</h3></div>
+ <div class="card"><div class="summaryline"><span>תעריף שעתי</span><strong>₪50.00</strong></div><div class="summaryline"><span>סך שעות בתשלום</span><strong id="breakdownHours">0.00</strong></div><div class="summaryline"><span>חישוב בסיס</span><strong id="formula">0 × ₪50</strong></div><div class="summaryline"><span>שכר בסיס משוער</span><strong id="breakdownTotal">₪0</strong></div></div>
+ <div class="notice">הסכום אינו תלוש שכר ואינו בהכרח השכר שמגיע בפועל. גרסה זו אינה מחשבת שעות נוספות, מנוחה שבועית, חגים, נסיעות, טיפים, מסים או ניכויים. נדרשת התאמה לכללי ההעסקה בישראל לפני שימוש לחישוב שכר מחייב.</div>
+</section>
+<section id="settings" class="view">
+ <div class="hero"><div class="eyebrow">YOUR PROFILE</div><h2>ההגדרות שלי</h2><p>התאמה אישית של סביבת העבודה שלך.</p></div>
+ <div class="card"><label for="hourlyRate">שכר שעתי (₪)</label><input id="hourlyRate" type="number" min="0" step="0.5" value="50"><button class="action full" onclick="saveRate()">שמירת שכר שעתי</button><div class="summaryline"><span>ימי עבודה בשבוע</span><strong>4 ימים (הגדרה ראשונית)</strong></div><div class="summaryline"><span>שפה</span><strong>עברית · RTL</strong></div></div>
+ <div class="card"><h3 style="margin-top:0">התקנה במסך הבית</h3>
+ <p class="small">אפשר להוסיף את David Hazi למסך הבית ולפתוח אותו בחלון נפרד כמו אפליקציה.</p>
+ <button class="action full" id="installSettingsBtn" onclick="installApp()">＋ התקנת האפליקציה</button>
+ <div id="installHelp" class="notice" style="display:none"></div>
+ </div>
+ <div class="card"><h3 style="margin-top:0">על האפליקציה</h3><p class="small">David Hazi נבנה כחוויית ניהול משמרות ושכר בהשראת עולם הסוסים — עיצוב כהה, זהב עדין ופשטות שימושית.</p><div class="owner" style="font-size:17px">David Hazi<small>OWNER</small></div></div>
+ <button class="action secondary full" onclick="if(confirm('למחוק את כל המשמרות ששמורות במכשיר?')){localStorage.removeItem('dh_shifts');render()}">מחיקת כל המשמרות מהמכשיר</button>
+</section>
+<nav class="tabs">
+ <button class="tab active" data-view="home" onclick="showView('home')"><span class="ico">⌂</span>בית</button>
+ <button class="tab" data-view="schedule" onclick="showView('schedule')"><span class="ico">▦</span>משמרות</button>
+ <button class="tab" data-view="salary" onclick="showView('salary')"><span class="ico">₪</span>משכורת</button>
+ <button class="tab" data-view="settings" onclick="showView('settings')"><span class="ico">⚙</span>הגדרות</button>
+</nav>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+let shifts=JSON.parse(localStorage.getItem('dh_shifts')||'[]');
+let rate=Number(localStorage.getItem('dh_rate')||50);
+$('hourlyRate').value=rate;
+const today=new Date(); $('todayDate').textContent=today.toLocaleDateString('he-IL',{weekday:'long',day:'numeric',month:'long'});
+$('shiftDate').value=localDate(today);
+function localDate(d){return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`}
+function money(n){return new Intl.NumberFormat('he-IL',{style:'currency',currency:'ILS',maximumFractionDigits:0}).format(n)}
+function getCalc(s){let a=s.start.split(':').map(Number),b=s.end.split(':').map(Number);let start=a[0]*60+a[1],end=b[0]*60+b[1];if(end<=start)end+=1440;let gross=end-start;let paidBreak=s.breakPaid==='yes'?0:Number(s.breakMins||0);let net=Math.max(0,gross-paidBreak);return {gross,net,pay:net/60*rate}}
+function fmtMin(m){return `${Math.floor(m/60)}:${String(m%60).padStart(2,'0')}`}
+function dateText(ds){return new Date(ds+'T12:00:00').toLocaleDateString('he-IL',{weekday:'short',day:'2-digit',month:'2-digit'})}
+function save(){localStorage.setItem('dh_shifts',JSON.stringify(shifts))}
+function render(){
+ shifts.sort((a,b)=>a.date.localeCompare(b.date)||a.start.localeCompare(b.start));save();
+ let now=new Date(), month=localDate(now).slice(0,7);
+ let ms=shifts.filter(s=>s.date.startsWith(month));let totalMin=ms.reduce((n,s)=>n+getCalc(s).net,0);let totalPay=totalMin/60*rate;
+ $('monthHours').textContent=fmtMin(totalMin);$('monthPay').textContent=money(totalPay);
+ $('salaryHours').textContent=fmtMin(totalMin);$('salaryTotal').textContent=money(totalPay);$('breakdownHours').textContent=(totalMin/60).toFixed(2);$('formula').textContent=`${(totalMin/60).toFixed(2)} × ${money(rate)}`;$('breakdownTotal').textContent=money(totalPay);
+ let upcoming=shifts.find(s=>s.date>=localDate(now));
+ $('nextShift').innerHTML=upcoming?`<div class="nextrow"><div><h4>${dateText(upcoming.date)} · ${upcoming.place||'משמרת עבודה'}</h4><p>${upcoming.start}–${upcoming.end} · ${fmtMin(getCalc(upcoming).net)} שעות בתשלום</p></div><div class="timepill">${money(getCalc(upcoming).pay)}</div></div>`:'<div class="empty">אין משמרות עתידיות. אפשר להוסיף משמרת בלחיצה אחת.</div>';
+ let weekEnd=new Date(now);weekEnd.setDate(now.getDate()+6);let week=shifts.filter(s=>s.date>=localDate(now)&&s.date<=localDate(weekEnd));$('weekCount').textContent=week.length+' משמרות';$('weekList').innerHTML=week.length?week.map(s=>shiftHTML(s)).join(''):'<div class="empty">אין משמרות בשבעת הימים הקרובים.</div>';
+ $('allShifts').innerHTML=shifts.length?shifts.map(s=>shiftHTML(s,true)).join(''):'<div class="empty">אין משמרות שמורות עדיין.<br>הוסף את המשמרת הראשונה למטה.</div>';
+}
+function shiftHTML(s,controls=false){let c=getCalc(s);return `<div class="shift"><div class="daybox"><b>${s.date.slice(8,10)}</b><small>${dateText(s.date).split(' ')[0]}</small></div><div class="shiftinfo"><b>${s.start}–${s.end}</b><small>${s.place||'משמרת'} · ${fmtMin(c.net)} שעות בתשלום</small></div><div class="money">${money(c.pay)}</div>${controls?`<button class="delete" onclick="editShift('${s.id}')">עריכה</button>`:''}</div>`}
+$('shiftForm').addEventListener('submit',e=>{e.preventDefault();let id=$('editId').value;let s={id:id||String(Date.now()),date:$('shiftDate').value,start:$('startTime').value,end:$('endTime').value,breakMins:Number($('breakMins').value||0),breakPaid:$('breakPaid').value,place:$('place').value.trim()};if(!s.date){alert('נא לבחור תאריך');return}if(id)shifts=shifts.map(x=>x.id===id?s:x);else shifts.push(s);resetForm();render();showView('schedule')});
+function editShift(id){let s=shifts.find(x=>x.id===id);if(!s)return;$('editId').value=s.id;$('shiftDate').value=s.date;$('startTime').value=s.start;$('endTime').value=s.end;$('breakMins').value=s.breakMins;$('breakPaid').value=s.breakPaid;$('place').value=s.place||'';$('formTitle').textContent='עריכת משמרת';$('cancelEdit').style.display='block';$('shiftForm').scrollIntoView({behavior:'smooth',block:'start'})}
+function resetForm(){$('editId').value='';$('shiftForm').reset();$('shiftDate').value=localDate(new Date());$('startTime').value='09:00';$('endTime').value='17:00';$('breakMins').value=30;$('breakPaid').value='no';$('formTitle').textContent='הוספת משמרת';$('cancelEdit').style.display='none'}
+function saveRate(){let v=Number($('hourlyRate').value);if(!Number.isFinite(v)||v<0){alert('נא להזין שכר שעתי תקין');return}rate=v;localStorage.setItem('dh_rate',String(rate));render();alert('השכר השעתי נשמר במכשיר זה')}
+function showView(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('active',v.id===id));document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active',t.dataset.view===id));window.scrollTo({top:0,behavior:'smooth'})}
+let deferredInstallPrompt=null;
+const installBtn=$('installBtn'), installSettingsBtn=$('installSettingsBtn'), installHelp=$('installHelp');
+function isStandalone(){return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone===true}
+function updateInstallUI(){
+ if(isStandalone()){
+  installBtn.style.display='none';
+  installSettingsBtn.textContent='האפליקציה כבר מותקנת ✓';
+  installSettingsBtn.disabled=true;
+  installSettingsBtn.style.opacity='.7';
+  installHelp.style.display='block';
+  installHelp.textContent='האפליקציה מותקנת במסך הבית. אפשר לפתוח אותה משם.';
+ }else if(deferredInstallPrompt){
+  installBtn.style.display='inline-block';
+  installSettingsBtn.textContent='＋ התקנת האפליקציה';
+  installSettingsBtn.disabled=false;
+  installHelp.style.display='none';
+ }else{
+  installBtn.style.display='none';
+  installSettingsBtn.textContent='איך מוסיפים למסך הבית?';
+  installSettingsBtn.disabled=false;
+  installHelp.style.display='block';
+  const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+  installHelp.innerHTML=ios
+   ? 'באייפון: פתחו את האתר ב-Safari, לחצו על כפתור השיתוף ואז על <b>הוספה למסך הבית</b>. אם האפשרות לא מופיעה, גללו בתפריט השיתוף.'
+   : 'אם לא מופיעה אפשרות התקנה, יש לפתוח את האתר דרך כתובת HTTPS בדפדפן תומך. באנדרואיד, פתחו את תפריט הדפדפן ובחרו <b>התקנת אפליקציה</b> או <b>הוספה למסך הבית</b>.';
+ }
+}
+window.addEventListener('beforeinstallprompt',e=>{
+ e.preventDefault();deferredInstallPrompt=e;updateInstallUI();
+});
+window.addEventListener('appinstalled',()=>{
+ deferredInstallPrompt=null;updateInstallUI();
+});
+async function installApp(){
+ if(isStandalone()){updateInstallUI();return}
+ if(deferredInstallPrompt){
+  deferredInstallPrompt.prompt();
+  try{await deferredInstallPrompt.userChoice}catch(e){}
+  deferredInstallPrompt=null;updateInstallUI();return;
+ }
+ const ios=/iphone|ipad|ipod/i.test(navigator.userAgent);
+ installHelp.style.display='block';
+ installHelp.innerHTML=ios
+  ? 'באייפון ובאייפד: יש לפתוח את האתר ב-Safari, ללחוץ על <b>שיתוף</b> ואז לבחור <b>הוספה למסך הבית</b>.'
+  : 'כדי להתקין, יש להעלות את קובצי האתר לשרת HTTPS. לאחר מכן פתחו את האתר בדפדפן ותפריט הדפדפן יציע <b>התקנת אפליקציה</b> או <b>הוספה למסך הבית</b>. אם פתחתם קובץ HTML ישירות מהמכשיר, התקנה כאפליקציה לא תהיה זמינה.';
+}
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').then(updateInstallUI).catch(updateInstallUI);
+else updateInstallUI();
+render();
+</script>
+</body>
+</html>

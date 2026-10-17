@@ -1,0 +1,19 @@
+{
+  "name": "David Hazi — ניהול משמרות ומשכורת",
+  "short_name": "David Hazi",
+  "lang": "he",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#11120f",
+  "theme_color": "#151512",
+  "description": "ניהול משמרות ושכר שעתי בעיצוב יוקרתי בהשראת סוסים",
+  "icons": [
+    {
+      "src": "horse-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
